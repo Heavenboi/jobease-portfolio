@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# IDE (e.g., PyCharm)
+.idea/
+
+# Flask
+instance/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and databases
+logs/
+db.sqlite
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Miscellaneous
+.DS_Store
+.env
+.env.*
+.vscode/
