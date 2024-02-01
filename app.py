@@ -4,15 +4,10 @@ from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6eef104ab11c0cb779c74b3690ff613a'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+#db = SQLAlchemy(app)
 
-class User(db.Model):
-    id = db.Column(db.integer, primary_key=True)
-    username = db.Column(db.string(20), unique=True, nullable=False)
-    email = db.Column(db.string(120), unique=True, nullable=False)
-    image_file = db.Column(db.string(20), unique=True, default='defaut.jpeg')
-    password = db.Column(db.string(60), nullable=False)
+
 
 jobs = [{
     'title': 'Frontend developer',
