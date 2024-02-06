@@ -1,0 +1,30 @@
+'''from flask_login import LoginManager, login_user, logout_user, current_user, UserMixin
+from models import User, db
+from database import load_jobs_from_db, insert_job_into_db, insert_user_into_db
+from werkzeug.utils import secure_filename
+from flask_bcrypt import check_password_hash
+import os
+from config import Config
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://kq489gxwrraoohqo9a61:pscale_pw_lnC7G73UBbPN0CLeUtDDLeluSpAEhmARGb6wubQz18d@aws.connect.psdb.cloud/jobease-database?charset=utf8mb4'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object(Config)
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    # Implement a function to load the user from the database
+    return User.query.get(int(user_id))
+
+
+with app.app_context():
+    db.create_all()
+'''

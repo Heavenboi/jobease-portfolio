@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ url_for('static', filename='user/upload/profile_picture/' + current_user.image_file) }}" style="width: 120px; height: 120px;">
+      <div class="media-body">
+        <h2 class="account-heading">{{ current_user.username }}</h2>
+        <p class="text-secondary">{{ current_user.email }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+</div>
+{% endblock content %}
