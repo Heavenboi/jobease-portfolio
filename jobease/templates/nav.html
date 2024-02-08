@@ -16,8 +16,9 @@
         <div class="col-md-3 text-end">
             {% if current_user.is_authenticated %}
                 <!-- Display user's profile picture -->
-                <img src="{{ url_for('static', filename='user/upload/profile_picture/' + current_user.image_file) }}"
-                     alt="Profile Picture" class="rounded-circle" width="40" height="40">
+                <!--img src="{{ url_for('static', filename='user/upload/profile_picture/' + current_user.image_file) }}"
+                     alt="Profile Picture" class="rounded-circle" width="40" height="40"-->
+                <a href="{{ url_for('new_jobs') }}" class="btn btn-outline-primary me-2">Post A Job</a>
                 <a href="{{ url_for('account') }}" class="btn btn-outline-primary me-2">Account</a>
                 <a href="{{ url_for('logout') }}" class="btn btn-outline-primary me-2">Logout</a>
             {% else %}
@@ -26,4 +27,13 @@
             {% endif %}
         </div>
     </header>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
 </div>
