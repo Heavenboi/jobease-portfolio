@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, text
+'''from sqlalchemy import create_engine, text
 
 db_connection_string = ""
 engine = create_engine(db_connection_string, connect_args={
@@ -28,4 +28,4 @@ def insert_user_into_db(username, email, password, profile_picture='default.jpg'
             email=email,
             password=password,
             image_file=profile_picture
-        )
+        )'''

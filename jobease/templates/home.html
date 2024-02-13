@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="position-relative">
+    <div class="bg-image">
         <!-- Background Image with Darker Overlay -->
-        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Banner Image" class="img-fluid" style="width: fit-content; height: 100%; object-fit: cover;">
+        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Banner Image" class="img-fluid">
 
         <!-- Text Overlay -->
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
@@ -38,16 +38,14 @@
                     At JobEase, we're more than a job-search platform; we're your partners in career advancement. 
                     Our commitment is simple: to connect talent with opportunity. With a focus on innovation and 
                     user-friendly design, JobEase is your gateway to streamlined, impactful job searches.
-                    <br></br>                 
-                    <br> <b>Why JobEase?</b></br>
-                    <br></br>
+                </p>
+                <p>                 
+                    <b>Why JobEase?</b><br><br>
                     
-                    <b>Efficiency:</b> Experience a seamless and efficient job-search process.
-                    <b>Personalization:</b> Tailored job recommendations based on your unique profile.
-                    <b>Community:</b> Join a vibrant community of professionals and employers.
+                    <b>Efficiency:</b> Experience a seamless and efficient job-search process.<br>
+                    <b>Personalization:</b> Tailored job recommendations based on your unique profile.<br>
+                    <b>Community:</b> Join a vibrant community of professionals and employers.<br>
                     Join us. Explore. Elevate your career.
-                    <br></br>
-                    Discover the power of JobEase today.
                     
                 </p>
         
@@ -60,16 +58,18 @@
 
 <div class="container mt-5 text-center">
     <h2>Job Listings</h2>
-    {% for job in jobs %}
-        <div class="card mb-3">
-            <div class="card-body d-flex justify-content-between align-items-center">
-                <div class="text-lg-start">
-                    <h5 class="card-title">{{ job.title }}</h5>
-                    <p class="card-text">{{ job.salary }} <i class="bi bi-geo"></i> {{ job.location }}</p>
+    <div class="row">
+        {% for job in jobs %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h5 class="card-title">{{ job.title }}</h5>
+                        <p class="card-text">{{ job.salary }} <i class="bi bi-geo"></i> {{ job.location }}</p>
+                        <a href="#" class="btn btn-primary mt-auto">Apply</a>
+                    </div>
                 </div>
-                <a href="#" class="btn btn-primary">Apply</a>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>  
 {% endblock %}

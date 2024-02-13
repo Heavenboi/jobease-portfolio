@@ -1,31 +1,17 @@
 import os
 import secrets
 from PIL import Image
-from flask import  render_template, flash, redirect, url_for,request
+from flask import render_template, flash, redirect, url_for,request
 from jobease import app, db, bcrypt
 from jobease import app
 from jobease.models import User, JobPost
 from jobease.forms import RegistrationForm, LoginForm, updateAccountForm, PostForm
-from jobease.database import load_jobs_from_db
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-'''jobs = [
-    {
-        'title': 'Software Engineer',
-        'location': 'San Francisco, CA',
-        'salary': 100000,
-        'currency': 'USD',
-        'description': 'Exciting opportunity for a software engineer...',
-        'responsibilities': 'Design and implement software solutions...',
-    }
-]
-'''
-
-jobs = load_jobs_from_db()
-
 @app.route("/")
 def homepage():
+    jobs = JobPost.query.all()
     return render_template('home.html', jobs=jobs)
 
 @app.route("/about")
@@ -34,6 +20,7 @@ def about():
 
 @app.route("/jobs")
 def jobs_list():
+    jobs = JobPost.query.all()
     return render_template('jobs.html', jobs=jobs)
 
 @app.route("/contact")
@@ -62,7 +49,7 @@ def register():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('jobs'))
+        return redirect(url_for('homepage'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -94,6 +81,7 @@ def save_picture(form_picture):
     i.save(picture_path)
 
     return picture_fn
+
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
@@ -113,11 +101,20 @@ def account():
     image_file = url_for('static', filename='user/upload/profile_picture/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file = image_file,form=form)
 
+# Route for creating a new job post
 @app.route("/jobs/new", methods=['GET', 'POST'])
 @login_required
 def new_jobs():
     form = PostForm()
     if form.validate_on_submit():
-        flash('Your Job has been created!', 'success')
-        redirect(url_for('home'))
-    return render_template('create_jobs.html', title='New Jobs', form=form)
+        job_post = JobPost(title=form.title.data,
+                           description=form.description.data,
+                           location=form.location.data,
+                           salary=form.salary.data,
+                           responsibilities=form.responsibilities.data,
+                           author=current_user)
+        db.session.add(job_post)
+        db.session.commit()
+        flash('Your job has been created!', 'success')
+        return redirect(url_for('homepage'))
+    return render_template('create_jobs.html', title='New Job', form=form)

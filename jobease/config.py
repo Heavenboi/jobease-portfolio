@@ -10,3 +10,4 @@ class Config:
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     db = SQLAlchemy(app)
+"mysql+pymysql://dwjl7n1emjf1tnn7c0dt:pscale_pw_hzSOgtqU5dDidjJB6xLaeykrlKaGwhklUcfL3D8JB1J@aws.connect.psdb.cloud/jobease-database?charset=utf8mb4&ssl_ca=/etc/ssl/certs/ca-certificates.crt"

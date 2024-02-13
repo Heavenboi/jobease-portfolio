@@ -1,4 +1,4 @@
-#!/home/wooden/Documents/school/jobease-portfolio/.venv/bin/python3
+#!/home/wooden/Documents/school/jobease-portfolio/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
