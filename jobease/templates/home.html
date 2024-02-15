@@ -2,74 +2,180 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="bg-image">
-        <!-- Background Image with Darker Overlay -->
-        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Banner Image" class="img-fluid">
+    <div class="container-fluid">
+        <div class="row justify-content-end">
+            <div class="col-md-6 text-center">
+                <img src="{{ url_for('static', filename='img/business.gif') }}" alt="Banner Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    
 
         <!-- Text Overlay -->
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-            <h1 class="display-4" style="color: #008575;">Empower Your Career Journey</h1>
-            <p class="lead" style="color: #695d46;">Discover and thrive in the perfect career. Your journey starts here.</p>
+            <h1 class="display-4 roboto-medium text-color">Empower Your Career Journey</h1>
+            <p class="lead roboto-light-italic text-color">Discover and thrive the perfect career. Your journey starts here.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
         </div>
+
+        <!--div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/people.jpg') }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div-->
+
+
+        
     </div>
 </div>
+
 
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
             <!-- About Us Heading -->
-            <h1 style="color: #ff5e0e;">About Us</h1>
+            <h1 style=""></h1>
         </div>
     </div>
 </div>
-
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <!-- Image -->
-            <img src="{{ url_for('static', filename='img/about.jpg') }}" alt="Your Image" class="img-fluid">
+            <img src="{{ url_for('static', filename='img/connect.gif') }}" alt="Your Image" class="img-fluid rounded">
         </div>
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 body-text">
             <!-- Text -->
             <div style="margin-top: 20px;"> <!-- Adjust the margin-top as needed -->
-                <h2>About JobEase</h2>
-                <p>Welcome to JobEase – Your Pathway to Professional Success.
+                <h2 class="roboto-medium text-color">JobEase</h2>
+                <p class="roboto-light text-color">Welcome to JobEase – Your Pathway to Professional Success.
 
                     At JobEase, we're more than a job-search platform; we're your partners in career advancement. 
                     Our commitment is simple: to connect talent with opportunity. With a focus on innovation and 
                     user-friendly design, JobEase is your gateway to streamlined, impactful job searches.
-                </p>
-                <p>                 
-                    <b>Why JobEase?</b><br><br>
-                    
-                    <b>Efficiency:</b> Experience a seamless and efficient job-search process.<br>
-                    <b>Personalization:</b> Tailored job recommendations based on your unique profile.<br>
-                    <b>Community:</b> Join a vibrant community of professionals and employers.<br>
-                    Join us. Explore. Elevate your career.
-                    
-                </p>
-        
+                </p>        
                 <!-- Button -->
                 <a href="{{ url_for('about') }}" class="btn btn-primary">Learn More</a>
             </div>
         </div>
     </div>
 </div>
-
-<div class="container mt-5 text-center">
-    <h2>Job Listings</h2>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
     <div class="row">
-        {% for job in jobs %}
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title">{{ job.title }}</h5>
-                        <p class="card-text">{{ job.salary }} <i class="bi bi-geo"></i> {{ job.location }}</p>
-                        <a href="#" class="btn btn-primary mt-auto">Apply</a>
-                    </div>
-                </div>
+        <div class="col-md-6 mb-6 body-text">
+            <!-- Text -->
+            <div style="margin-top: 20px;"> <!-- Adjust the margin-top as needed -->
+                <h2 class="roboto-medium text-color">Features</h2>
+                <p class="roboto-light text-color">
+                    <p class="text-color"><b>Easy Application Process:</b> Apply to jobs seamlessly with our 
+                    streamlined application process, making it quick and effortless to submit your resume and cover 
+                    letter to potential employers.</p>
+
+                   <p class="text-color"><b>Direct Employer Connections:</b> Connect directly with employers and hiring managers, 
+                    bypassing traditional job boards and intermediaries, to increase your chances of landing your dream job.</p>
+                    
+                    <p class="text-color"><b>Verified Job Listings:</b> Rest assured that all job listings on our platform are verified and 
+                    screened for authenticity, ensuring that you have access to legitimate and trustworthy opportunities.</p>
+                </p>
             </div>
-        {% endfor %}
+        </div>
+        <div class="col-md-6">
+            <!-- Image -->
+            <img src="{{ url_for('static', filename='img/earth.gif') }}" alt="Your Image" class="img-fluid rounded">
+        </div>
     </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Image -->
+            <img src="{{ url_for('static', filename='img/banner3.gif') }}" alt="Your Image" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 mb-4 body-text">
+            <!-- Text -->
+            <div style="margin-top: 20px;"> <!-- Adjust the margin-top as needed -->
+                <h2 class="roboto-medium text-color">About JobEase</h2>
+                <p class="roboto-light text-color">
+                    Our Story
+                     – JobEase was born out of our own experiences navigating the complexities of the job market. 
+                     As recent graduates ourselves, we understand the challenges and frustrations that come with searching 
+                     for the perfect job opportunity. The endless scrolling through job boards, the uncertainty of whether 
+                     our applications are even being seen—these were all too familiar struggles.
+
+                     Driven by our passion for creating meaningful solutions, we embarked on a journey to develop JobEase—a 
+                     platform designed to simplify the job-search process and empower individuals to find their dream careers. 
+                     Our vision was clear: to build a tool that not only streamlines job hunting but also fosters genuine connections 
+                     between candidates and employers.
+                     
+                     With every line of code and every design decision, we infused JobEase with our shared commitment to making 
+                     a positive impact on the lives of job seekers worldwide. We poured our hearts and souls into this project, 
+                     knowing that it could make a difference for countless individuals facing similar challenges.
+                </p>        
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-5 text-center">
+    <div class="container mt-5">
+        <h2 class="text-color">Explore Our Recent Job listings</h2>
+    {% for job in jobs %}
+        <div class="card mb-3">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="text-lg-start">
+                    <h5 class="card-title">{{ job.title }}</h5>
+                    <p class="card-text">{{ job.salary }} <i class="bi bi-geo"></i> {{ job.location }}</p>
+                </div>
+                <a href="#" class="btn btn-primary">Apply</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="bg-image">
+    <!-- Background Image with Darker Overlay -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <img src="{{ url_for('static', filename='img/banner2.png') }}" alt="Banner Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>  
 {% endblock %}
