@@ -33,3 +33,6 @@ db.sqlite
 .env
 .env.*
 .vscode/
+
+#db files
+cred

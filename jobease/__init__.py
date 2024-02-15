@@ -5,12 +5,18 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 import os
 
+def get_db_uri():
+    with open('/home/wooden/Documents/school/jobease-portfolio/jobease/cred', 'r') as file:
+        return file.read().strip()
+db_string = get_db_uri()
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6eef104ab11c0cb779c74b3690ff613a'
 
 # Configure the database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://nigel:Heavenboi20@localhost/jobease'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable modification tracking
+app.config['SQLALCHEMY_DATABASE_URI'] = db_string
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+
 
 # Initialize extensions
 db = SQLAlchemy(app)
