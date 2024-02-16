@@ -16,7 +16,7 @@ def homepage():
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about_us.html')
 
 @app.route("/jobs")
 def jobs_list():

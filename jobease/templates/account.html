@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container content-section">
+<div class="container content-section text-color">
     <div class="media">
       <img class="rounded-circle account-img" src="{{ url_for('static', filename='user/upload/profile_picture/' + current_user.image_file) }}" style="width: 120px; height: 120px;">
       <div class="media-body">
@@ -9,15 +9,15 @@
         <p class="text-secondary">{{ current_user.email }}</p>
       </div>
     </div>
-    <div class="container">
+    <div class="container text-color">
         <div class="row">
             <div class="col-md-6">
                 <!-- Right Section with Registration Form -->
                 <form method="POST" action="" enctype="multipart/form-data">
                         {{ form.hidden_tag() }}
-                        <fieldset class="form-group">
-                            <legend class="border-bottom mb-4">Account information</legend>
-                            <div class="form-group">
+                        <fieldset class="form-group text-color">
+                            <legend class="border-bottom mb-4 text-color">Account information</legend>
+                            <div class="form-group text-color">
                                 {{ form.username.label(class="form-control-label") }}
                                 {% if form.username.errors %}
                                 {{ form.username(class="form-control form-control-lg is-invalid") }}
@@ -30,7 +30,7 @@
                                 {{ form.username(class="form-control form-control-lg") }}
                                 {% endif %}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-color">
                                 {{ form.email.label(class="form-control-label") }}
                                 {% if form.email.errors %}
                                 {{ form.email(class="form-control form-control-lg is-invalid") }}
@@ -43,7 +43,7 @@
                                 {{ form.email(class="form-control form-control-lg") }}
                                 {% endif %}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-color">
                                 {{ form.picture.label() }}
                                 {{ form.picture(class="form-control-file") }}
                                 {% if form.picture.errors %}
@@ -52,7 +52,7 @@
                                     {% endfor %}
                                 {% endif %}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-color">
                                 {{ form.submit(class="btn btn-outline-info") }}
                             </div>
                         </fieldset>
